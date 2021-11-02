@@ -14,20 +14,34 @@ export class HeroesComponent implements OnInit {
   constructor(private heroSerivece: HeroService) {}
 
   ngOnInit(): void {
-    
+    this.getHeroes();
   }
+  hero: Hero[] = [];
 
-
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+  // hero: Hero = {
+  //   id: 1,
+  //   name: 'Windstorm'
+  // };
 
   heroes = HEROES;
   selectedHero?: Hero;
   onSelect(hero: Hero){
     console.log(hero);
     this.selectedHero = hero;
+  }
+  // MOCK WITHOUT OBSERVABLE
+  // getHeroes() : void {
+  //   this.heroes = this.heroSerivece.getHeroes();
+  // }
+
+
+  //MOCK WITH OF OBSERVABLES
+  getHeroes(){
+    this.heroSerivece.getHeroes()
+    .subscribe(res => {
+      console.log(res)
+      this.heroes = res
+    });
   }
 
   
