@@ -14,7 +14,7 @@ export class HeroService {
   // MOCK WITHOUT OBSERVABLE
   // getHeroes(): Hero[] {
   //   return HEROES
-  // }
+  // } //////////// commento per commit di merge
 
 
   //MOCK WITH OF OBSERVABLES
